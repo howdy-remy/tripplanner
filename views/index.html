@@ -1,6 +1,13 @@
+<!DOCTYPE html>
+
 <html>
 	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link href='https://fonts.googleapis.com/css?family=Lato:400,300,900,900italic,400italic|Merriweather:400,400italic' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="/stylesheets/style.css">
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 	</head>
 
 	<body>
@@ -14,43 +21,173 @@
 
 	</nav>
 
-	<section class="maparea">
-		<!-- insert map -->
+	<section id="maparea">
+	<p>map</p>
 	</section>
 
 	<section class="itinerary">
-		<h2>Itinerary</h2>
-		<ul>
-			<li>Days</li>
+		<h2>Your Itinerary</h2>
+		<h3>days</h3>
+		<ul class="days">
+			<li class="active"><a href="#" class="day-button" data-day="day1">1</a></li>
+			<li><a href="#" class="day-button" data-day="day2">2</a></li>
+			<li><a href="#" class="day-button" data-day="day3">3</a></li>
+			<li><a href="#">+</a></li>
 		</ul>
 
-		<form method="POST" action="/added">
-			<label for="hotel-field">Hotel:</label>
+		<div class="list day1 active-day">
+		<h3>My Hotels</h3>
+		<ul>
+			<li><a class="delete" href="#">×</a>Andaz Wall Street</li>
+		</ul>
+		<!-- Hotel form -->
+		<form method="POST" action="/addhotel">
 			<select>
 				{% for hotel in hotels %}
-					<option value="{{ hotel.name}}">{{ hotel.name}}</option>
+					<option name="hotel" value="{{ hotel.name}}">{{ hotel.name}}</option>
 				{% endfor %}
 			</select>
-
-			<label for="restaurant-field">Restaurant:</label>
-			<select>
-				{% for restaurant in restaurants %}
-					<option value="{{ restaurant.name}}">{{ restaurant.name}}</option>
-				{% endfor %}
-			</select>
-
-			<label for="activity-field">Activity:</label>
-			<select>
-				{% for activity in activities %}
-					<option value="{{ activity.name}}">{{ activity.name}}</option>
-				{% endfor %}
-			</select>
-			<input type="submit" value="Add to Itinerary" />
+			<input type="submit" value="Add" />
 		</form>
 
+
+		<h3>My Restaurants</h3>
+		<ul>
+			<li><a class="delete" href="#">×</a>Bouley</li>
+			<li><a class="delete" href="#">×</a>Joe’s Shanghai</li>
+
+		</ul>
+		<!-- Restaurant form  -->
+		<form method="POST" action="/addrestaurant">
+			<select>
+				{% for restaurant in restaurants %}
+					<option name="restaurant" value="{{ restaurant.name}}">{{ restaurant.name}}</option>
+				{% endfor %}
+			</select>
+			<input type="submit" value="Add" />
+		</form>
+
+		<h3>My Activities</h3>
+		<ul>
+			<li><a class="delete" href="#">×</a>South Street Seaport</li>
+			<li><a class="delete" href="#">×</a>National September 11th Memorial & Museum</li>
+		</ul>
+		<form method="POST" action="/addactivity">
+			<select>
+				{% for activity in activities %}
+					<option name="activity" value="{{ activity.name}}">{{ activity.name}}</option>
+				{% endfor %}
+			</select>
+			<input type="submit" value="Add"/>
+		</form>
+
+		</div>
+
+
+		<div class="list day2">
+		<h3>My Hotels</h3>
+		<ul>
+			<li><a class="delete" href="#">×</a>Double Tree</li>
+		</ul>
+		<!-- Hotel form -->
+		<form method="POST" action="/addhotel">
+			<select>
+				{% for hotel in hotels %}
+					<option name="hotel" value="{{ hotel.name}}">{{ hotel.name}}</option>
+				{% endfor %}
+			</select>
+			<input type="submit" value="Add" />
+		</form>
+
+
+		<h3>My Restaurants</h3>
+		<ul>
+			<li><a class="delete" href="#">×</a>Pylos</li>
+			<li><a class="delete" href="#">×</a>Tamarind</li>
+
+		</ul>
+		<!-- Restaurant form  -->
+		<form method="POST" action="/addrestaurant">
+			<select>
+				{% for restaurant in restaurants %}
+					<option name="restaurant" value="{{ restaurant.name}}">{{ restaurant.name}}</option>
+				{% endfor %}
+			</select>
+			<input type="submit" value="Add" />
+		</form>
+
+		<h3>My Activities</h3>
+		<ul>
+			<li><a class="delete" href="#">×</a>Battery Park</li>
+			<li><a class="delete" href="#">×</a>Apple Store</li>
+			<li><a class="delete" href="#">×</a>Mahayana Temple Buddhist Association</li>
+		</ul>
+		<form method="POST" action="/addactivity">
+			<select>
+				{% for activity in activities %}
+					<option name="activity" value="{{ activity.name}}">{{ activity.name}}</option>
+				{% endfor %}
+			</select>
+			<input type="submit" value="Add"/>
+		</form>
+
+		</div>
+
+		<div class="list day3">
+		<h3>My Hotels</h3>
+		<ul>
+			<li><a class="delete" href="#">×</a>US Pacific Hotel</li>
+		</ul>
+		<!-- Hotel form -->
+		<form method="POST" action="/addhotel">
+			<select>
+				{% for hotel in hotels %}
+					<option name="hotel" value="{{ hotel.name}}">{{ hotel.name}}</option>
+				{% endfor %}
+			</select>
+			<input type="submit" value="Add" />
+		</form>
+
+
+		<h3>My Restaurants</h3>
+		<ul>
+			<li><a class="delete" href="#">×</a>Hop Lee Restaurant</li>
+
+		</ul>
+		<!-- Restaurant form  -->
+		<form method="POST" action="/addrestaurant">
+			<select>
+				{% for restaurant in restaurants %}
+					<option name="restaurant" value="{{ restaurant.name}}">{{ restaurant.name}}</option>
+				{% endfor %}
+			</select>
+			<input type="submit" value="Add" />
+		</form>
+
+		<h3>My Activities</h3>
+		<ul>
+			<li><a class="delete" href="#">×</a>Blue Man Group</li>
+			<li><a class="delete" href="#">×</a>Chinatown Ice Cream Factory</li>
+			<li><a class="delete" href="#">×</a>Scott’s Pizza Tours</li>
+			<li><a class="delete" href="#">×</a>Brooklyn Bridge Park</li>
+		</ul>
+		<form method="POST" action="/addactivity">
+			<select>
+				{% for activity in activities %}
+					<option name="activity" value="{{ activity.name}}">{{ activity.name}}</option>
+				{% endfor %}
+			</select>
+			<input type="submit" value="Add"/>
+		</form>
+
+		</div>
+
+		<button class="button">edit your itinerary</button>
 
 	</section>
 
 
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKisKCQ0T0I6va9owk60lgZ8Q7vZOcI-8&sensor=true"></script>
+	<script type='text/javascript' src="/jquery.js"></script>
 	</body>
 </html>

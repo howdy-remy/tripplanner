@@ -2,41 +2,146 @@
   margin: 0;
   padding: 0; }
 
-body p {
-  color: red;
-  font-size: 80px; }
+body {
+  font-family: "Lato", sans-serif;
+  font-size: 16px; }
+
+ul {
+  list-style-type: none; }
+
+a {
+  text-decoration: none;
+  color: inherit; }
 
 nav {
   width: 100vw;
   height: 50px;
-  overflow: hidden; }
-  nav h1, nav ul {
-    padding: 15px; }
+  overflow: hidden;
+  background-color: #ef4723; }
   nav h1 {
+    padding: 7px 15px;
     float: left;
-    color: blue;
-    font-size: 16px; }
+    font-size: 30px;
+    font-weight: 300;
+    color: white; }
   nav ul {
-    list-style-type: none;
-    float: right; }
+    color: rgba(255, 255, 255, 0.65);
+    float: right;
+    padding: 15px; }
     nav ul li {
       display: inline-block;
       padding-left: 15px; }
 
 section {
   display: inline-block; }
-  section.maparea {
-    background-color: #ccc;
-    height: 100%;
-    width: 70vw;
+  section#maparea {
+    height: calc(100vh - 50px);
+    width: 100vw;
     float: right; }
+    @media (max-width: 667px) {
+      section#maparea {
+        width: 100%;
+        height: 50vh; } }
   section.itinerary {
+    position: fixed;
+    overflow: scroll;
+    top: 60px;
+    left: 10px;
     padding: 20px;
-    background-color: #f8f8f8;
-    width: calc(30vw - 40px);
-    height: 100%; }
-    section.itinerary form label {
-      display: block; }
-    section.itinerary form select {
-      width: 100%;
-      margin: 10px 0 20px 0; }
+    background-color: rgba(255, 255, 255, 0.9);
+    width: calc(27vw);
+    height: calc(100vh - 115px); }
+    @media (max-width: 768px) {
+      section.itinerary {
+        width: 50vw;
+        font-size: 80%; } }
+    @media (max-width: 667px) {
+      section.itinerary {
+        position: static;
+        width: calc(100% - 40px);
+        height: auto;
+        overflow: hidden; } }
+    section.itinerary h2 {
+      padding-bottom: 15px;
+      border-bottom: 2px solid black;
+      margin-bottom: 15px; }
+    section.itinerary h3 {
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 14px;
+      font-weight: normal;
+      margin-top: 30px;
+      color: #007c92; }
+    section.itinerary .days {
+      margin: 5px 0 15px 0; }
+      section.itinerary .days li {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        border: 1px solid #ef4723;
+        color: #ef4723;
+        text-align: center;
+        margin-right: 7px; }
+        section.itinerary .days li.active {
+          background-color: #ef4723;
+          color: white; }
+        section.itinerary .days li a {
+          display: block;
+          padding-top: 4px; }
+          @media (max-width: 750px) {
+            section.itinerary .days li a {
+              padding-top: 6px; } }
+    section.itinerary .list {
+      display: none; }
+      section.itinerary .list ul li {
+        font-family: "Merriweather", serif;
+        text-indent: -10px;
+        margin-left: 10px; }
+      section.itinerary .list.active-day {
+        display: block; }
+    section.itinerary .delete {
+      display: none;
+      color: red;
+      margin-right: 5px;
+      text-decoration: none; }
+    section.itinerary form {
+      display: none; }
+      section.itinerary form select {
+        display: inline-block;
+        width: 82%;
+        background: transparent;
+        background-color: #e4edcd;
+        border: none;
+        margin-top: 10px;
+        height: 30px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px; }
+      section.itinerary form input[type="submit"] {
+        width: 15%;
+        display: inline-block;
+        float: right;
+        margin-top: 5px;
+        background: transparent;
+        background-color: #e4edcd;
+        border: none;
+        margin-top: 10px;
+        height: 30px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px; }
+    section.itinerary .button {
+      background-color: #007c92;
+      border: none;
+      color: white;
+      margin-top: 30px;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      width: 100%; }
+      section.itinerary .button:hover {
+        background-color: #006679;
+        cursor: pointer; }
