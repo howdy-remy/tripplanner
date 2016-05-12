@@ -5,6 +5,7 @@
 
 $sans: 'Lato', sans-serif;
 $serif: 'Merriweather', serif;
+$bree: 'Bree Serif', serif;
 
 $blue: #007c92;
 $red: #ef4723;
@@ -36,19 +37,52 @@ a {
 	color: inherit;
 }
 
+h1 {
+		font-family: $bree;
+		padding: 3px 15px;
+		float: left;
+		font-size: 30px;
+		font-weight: 300;
+		color: white;
+		span {
+			opacity: .75;
+		}
+		img {
+			width:30px; 
+			height: 30px; 
+			position: relative;
+			top: 3px;
+			margin-right:5px;
+			}
+}
+
+.button {
+  background-color: $blue;
+  border: none;
+  color: white;
+  margin-top: 30px;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  width:100%;
+  @media (max-width: 900px) {
+		font-size: 14px;
+	}
+
+  &:hover {
+  	background-color: darken($blue, 5%);
+  	cursor: pointer;
+  }
+}
+
 nav {
 	width: 100vw;
 	height:50px;
 	overflow: hidden;
 	background-color: $red;
 
-	h1 {
-		padding: 7px 15px;
-		float: left;
-		font-size: 30px;
-		font-weight: 300;
-		color: white;
-	}
 
 	ul {
 		color: rgba(255,255,255, .65);
@@ -63,6 +97,48 @@ nav {
 	}
 }
 
+.overlay {
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba(0,0,0,.75);
+	position: fixed; 
+	z-index: 90;
+}
+
+.splash {
+	color: #000;
+	position: fixed;
+	background-color: white;
+	width: 80vw;
+	margin: auto;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 99;
+	text-align: center;
+	padding: 30px;
+	box-shadow: 0 0 1em black;
+	svg {
+		width:30px; 
+		height: 30px; 
+	}
+	h1 {
+		font-size: 40px;
+		color: #000;
+		width: 95%;
+		margin: 0 2.5%;
+		margin-bottom: 10px;
+	}
+	input {
+		margin: 20px;
+		width: 50%;
+		height: 50px;
+		padding: 5px;
+		font-size: 16px;
+		text-align: center;
+	}
+	
+}
 
 section {
 	display: inline-block;
@@ -88,9 +164,9 @@ section {
 		width: calc(27vw);
 		height: calc(100vh - 115px);
 
-		@media (max-width: 768px) {
-			width: 50vw;
-			font-size: 80%;
+		@media (max-width: 900px) {
+			width: 45vw;
+			font-size: 14px;
 		}
 
 		@media (max-width: 667px) {
@@ -134,7 +210,7 @@ section {
 				a {
 					display: block;
 					padding-top: 4px;
-					@media (max-width: 750px) {
+					@media (max-width: 900px) {
 						padding-top: 6px;
 					}
 				}
@@ -184,22 +260,7 @@ section {
 			}
 		}
 
-		.button {
-	    background-color: $blue;
-	    border: none;
-	    color: white;
-	    margin-top: 30px;
-	    padding: 10px 20px;
-	    text-align: center;
-	    text-decoration: none;
-	    display: inline-block;
-	    font-size: 16px;
-	    width:100%;
-	    &:hover {
-	    	background-color: darken($blue, 5%);
-	    	cursor: pointer;
-	    }
-		}
+		
 
 	}
 }

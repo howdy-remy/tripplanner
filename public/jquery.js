@@ -1,12 +1,38 @@
+var name;
 function initialize_gmaps() {
+
+	var customMapType = new google.maps.StyledMapType([
+      {
+        stylers: [
+          {hue: '#90b03e'},
+          // {visibility: 'complex'},
+          {gamma: 0.5},
+          {weight: 0.5}
+        ]
+      },
+      {
+        elementType: 'labels',
+        stylers: [{visibility: 'on'}]
+      },
+      {
+        featureType: 'water',
+        stylers: [{color: '#007c92'}, {lightness: 85}]
+      }
+    ], {
+      name: 'Custom Style'
+  });
+  var customMapTypeId = 'custom_style';
+
 // initialize new google maps LatLng object
-var myLatlng = new google.maps.LatLng(40.705189,-74.009209);
+var myLatlng = new google.maps.LatLng(40.705189, -74.009209 - 0.003);
 // var myLatlng = new google.maps.LatLng(99.705189,-74.009209);
 // set the map options hash
 var mapOptions = {
     center: myLatlng,
     zoom: 16,
-    mapTypeId: google.maps.MapTypeId.ROADMAP
+    mapTypeControlOptions: {
+      mapTypeIds: [google.maps.MapTypeId.ROADMAP, customMapTypeId]
+    }
 };
 // get the maps div's HTML obj
 var map_canvas_obj = document.getElementById("maparea");
@@ -23,6 +49,8 @@ var map = new google.maps.Map(map_canvas_obj, mapOptions);
 // Add the marker to the map by calling setMap()
 // marker.setMap(map);
   setMarkers(map);
+  map.mapTypes.set(customMapTypeId, customMapType);
+  map.setMapTypeId(customMapTypeId);
 
 }
 
@@ -42,7 +70,15 @@ function setMarkers(map) {
 
 $(document).ready(function() {
 
-    $('.button').on("click", function() {
+		$('.splash-button').on("click", function() {
+			name = $('#username').val() || "Your";
+			if(name !== "Your") name = name + "'s";
+			$('.overlay').remove();
+			$('.itinerary h2').text(name + " Itinerary");
+		});
+
+    $('button.button').on("click", function() {
+    		event.preventDefault();
         $('form').slideToggle();
         $('.delete').slideToggle();
         $(this).text(function(i, text) {
@@ -51,6 +87,7 @@ $(document).ready(function() {
     });
 
     $('.day-button').on("click", function() {
+    		event.preventDefault();
     		$('.days li').removeClass('active');
     		$(this).parent('li').addClass('active');
     		var day = $(this).attr('data-day');
