@@ -19,14 +19,16 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // statically serve front-end dependencies
 
-/* 
- app.use('/bootstrap', express.static(__dirname + '/node_modules/bootstrap/dist'));
-  app.use('/jquery', express.static(__dirname + '/node_modules/jquery/dist'));
-*/
+
+app.use('/bootstrap', express.static(__dirname + '/node_modules/bootstrap/dist'));
+app.use('/jquery', express.static(__dirname + '/node_modules/jquery/dist'));
+
 
 
 // serve any other static files
 app.use(express.static(__dirname + '/public'));
+app.use('/test', express.static(__dirname + '/assets/stylesheets/'));
+
 
 // serve dynamic routes
 app.use(require('./routes'));
@@ -36,9 +38,9 @@ app.use(require('./routes'));
 app.use(function (err, req, res, next) {
   console.error(err, err.stack);
   res.status(err.status || 500);
-  res.render('error', {
-  	error: err
-  });
+  // res.render('error', {
+  // 	error: err
+  // });
 });
 
 // listen on a port

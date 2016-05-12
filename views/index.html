@@ -1,0 +1,56 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="/stylesheets/style.css">
+	</head>
+
+	<body>
+
+	<nav>
+	<h1>Trip Planner</h1>
+	<ul>
+		<li>About</li>
+		<li>Contact</li>
+	</ul>
+
+	</nav>
+
+	<section class="maparea">
+		<!-- insert map -->
+	</section>
+
+	<section class="itinerary">
+		<h2>Itinerary</h2>
+		<ul>
+			<li>Days</li>
+		</ul>
+
+		<form method="POST" action="/added">
+			<label for="hotel-field">Hotel:</label>
+			<select>
+				{% for hotel in hotels %}
+					<option value="{{ hotel.name}}">{{ hotel.name}}</option>
+				{% endfor %}
+			</select>
+
+			<label for="restaurant-field">Restaurant:</label>
+			<select>
+				{% for restaurant in restaurants %}
+					<option value="{{ restaurant.name}}">{{ restaurant.name}}</option>
+				{% endfor %}
+			</select>
+
+			<label for="activity-field">Activity:</label>
+			<select>
+				{% for activity in activities %}
+					<option value="{{ activity.name}}">{{ activity.name}}</option>
+				{% endfor %}
+			</select>
+			<input type="submit" value="Add to Itinerary" />
+		</form>
+
+
+	</section>
+
+
+	</body>
+</html>

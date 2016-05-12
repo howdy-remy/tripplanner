@@ -4,7 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
+    "build-css": "node-sass -w -r assets/stylesheets -o public/stylesheets",
+    "start": "npm run build-css & nodemon -e html,css,js app.js",
     "db-init": "psql -f db-init.sql"
   },
   "author": "ayana@gracehopper.com",
@@ -12,12 +13,16 @@
   "dependencies": {
     "bluebird": "^2.10.2",
     "body-parser": "^1.13.3",
+    "bootstrap": "^3.3.6",
     "express": "^4.13.3",
+    "jquery": "^2.2.3",
     "morgan": "^1.6.1",
+    "nodemon": "^1.9.2",
     "sequelize": "^3.23.0",
     "swig": "^1.4.2"
   },
   "devDependencies": {
+    "node-sass": "^3.7.0",
     "nodemon": "^1.4.1"
   }
 }

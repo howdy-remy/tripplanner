@@ -1,0 +1,42 @@
+* {
+  margin: 0;
+  padding: 0; }
+
+body p {
+  color: red;
+  font-size: 80px; }
+
+nav {
+  width: 100vw;
+  height: 50px;
+  overflow: hidden; }
+  nav h1, nav ul {
+    padding: 15px; }
+  nav h1 {
+    float: left;
+    color: blue;
+    font-size: 16px; }
+  nav ul {
+    list-style-type: none;
+    float: right; }
+    nav ul li {
+      display: inline-block;
+      padding-left: 15px; }
+
+section {
+  display: inline-block; }
+  section.maparea {
+    background-color: #ccc;
+    height: 100%;
+    width: 70vw;
+    float: right; }
+  section.itinerary {
+    padding: 20px;
+    background-color: #f8f8f8;
+    width: calc(30vw - 40px);
+    height: 100%; }
+    section.itinerary form label {
+      display: block; }
+    section.itinerary form select {
+      width: 100%;
+      margin: 10px 0 20px 0; }
